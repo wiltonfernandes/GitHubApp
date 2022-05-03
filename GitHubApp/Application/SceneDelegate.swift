@@ -12,7 +12,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let navController = UINavigationController(rootViewController: RepositoriesViewController())
-        navController.navigationBar.prefersLargeTitles = true
+        navController.navigationBar.prefersLargeTitles = false
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
