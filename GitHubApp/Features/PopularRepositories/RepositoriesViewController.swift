@@ -1,14 +1,14 @@
-import UIKit
 import SnapKit
+import UIKit
 
-final class RepositoryViewController: UIViewController {
+final class RepositoriesViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorColor = .darkGray
         tableView.backgroundColor = .clear
-        tableView.rowHeight = 180
+        tableView.rowHeight = 160
         tableView.register(RepositoryViewCell.self)
         return tableView
     }()
@@ -17,10 +17,9 @@ final class RepositoryViewController: UIViewController {
         super.viewDidLoad()
         setupViewCode()
     }
-
 }
 
-extension RepositoryViewController: ViewCode {
+extension RepositoriesViewController: ViewCode {
     func buildHierarchy() {
         view.addSubview(tableView)
     }
@@ -41,7 +40,7 @@ extension RepositoryViewController: ViewCode {
     }
 }
 
-extension RepositoryViewController: UITableViewDataSource {
+extension RepositoriesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         5
     }
@@ -57,11 +56,11 @@ extension RepositoryViewController: UITableViewDataSource {
     }
 }
 
-extension RepositoryViewController: UITableViewDelegate {
+extension RepositoriesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let secondViewController = UIViewController()
-        secondViewController.view.backgroundColor = .white
-        secondViewController.title = "Repository Detail"
-        navigationController?.pushViewController(secondViewController, animated: true)
+        var pullRequestDetailViewController = UIViewController()
+       
+        pullRequestDetailViewController = PullRequestViewController()
+        navigationController?.pushViewController(pullRequestDetailViewController, animated: true)
     }
 }
