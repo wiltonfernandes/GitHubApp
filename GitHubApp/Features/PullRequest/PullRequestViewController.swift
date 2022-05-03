@@ -49,8 +49,10 @@ extension PullRequestViewController: UITableViewDataSource {
         let cell: PullRequestViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
         cell.update(
             title: "Título do Pull Request",
-            description: "16/12/2021 (BR)",
-            overview: "Descrição do repo, Descrição do repo, Descrição do repo"
+            description: """
+            descrição do repo,descrição do repo, descrição do repo, descrição do repo. descrição do repo, descrição do repo.
+            """,
+            imageName: "avatar.png"
         )
         return cell
     }
